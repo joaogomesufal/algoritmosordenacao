@@ -1,18 +1,28 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  #home
+    heap-sort
+    quick-sort
+    merge-sort
+    selection-sort
+    
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  import HeapSort from '../components/HeapSort'
+  import SelectionSort from '../components/SelectionSort'
+  import MergeSort from '../components/MergeSort'
+  import QuickSort from '../components/QuickSort'
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  export default {
+    components: {
+      HeapSort,
+      SelectionSort,
+      MergeSort,
+      QuickSort
+    },
+
+    created() {
+      this.$store.commit('generateDataset')
+    }
   }
-}
 </script>
